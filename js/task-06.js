@@ -5,7 +5,7 @@ const validationInput = document.querySelector("#validation-input");
 validationInput.addEventListener("blur", (event) => {
   //Порівнюємо кількість введених символів з значенням атрибута
   if (
-    event.target.value.length == validationInput.getAttribute("data-length")
+    event.target.value.length === +validationInput.getAttribute("data-length")
   ) {
     validationInput.classList.add("valid");
 

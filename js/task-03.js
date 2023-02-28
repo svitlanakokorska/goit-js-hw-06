@@ -16,27 +16,18 @@ const images = [
 //Пошук списку
 const galleryList = document.querySelector(".gallery");
 
-//Перебираємо масив об'єктів
-for (const element of images) {
-  //Створення елементу списку
-  const list = document.createElement("li");
+//Перебираємо масив об'єктів, створюємо елемент списку з фотографією
+const htmlMarkup = images
+  .map(
+    (image) =>
+      `<li><img class="photo" src="${image.url}" width="320" alt="${image.alt}"></li>`
+  )
+  .join(""); //прибираємо кому
+//Створення розмітки
+galleryList.insertAdjacentHTML("beforeend", htmlMarkup);
 
-  //Створення елементу зображення
-  const imageEl = document.createElement("img");
-
-  //Додавання зображень з галереї масиву
-  imageEl.src = element.url;
-  imageEl.alt = element.alt;
-  imageEl.width = 320;
-  console.log(imageEl);
-  galleryList.insertAdjacentHTML(
-    "beforeend",
-    `<li><img src = '${imageEl.src}' alt = '${imageEl.alt}' width = '${imageEl.width}'></li>`
-  );
-}
-console.log(galleryList);
 //Пошук всіх зображень
-const photos = document.querySelectorAll(".imageEl");
+const photos = document.querySelectorAll(".photo");
 //Стилізація зображень
 galleryList.style.display = "flex";
 galleryList.style.gap = "15px";
