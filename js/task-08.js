@@ -13,13 +13,8 @@ function handleSubmit(event) {
   if (email.value === "" || password.value === "") {
     return alert("Заповни всі поля!");
   }
-  const userInfo = {
-    email: email.value,
-    password: password.value,
-  };
   //Виведення об'єкту із введеними полями
-  console.log(userInfo);
-
+  console.log({ email: email.value, password: password.value });
   //Очищення значення полів форми
   event.currentTarget.reset();
 }
